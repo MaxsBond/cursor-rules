@@ -44,23 +44,6 @@ Example structure:
 - **Testing**: Vitest-based testing, colocated test files, and AI/LLM test guidelines.
 - **Features**: Major features like Inbox Cleaner, Knowledge Base, and Reply Tracker are documented in `rules/features/`.
 
-## Key Features
-### Inbox Cleaner
-Automates deep cleaning of inboxes by archiving or marking low-priority emails as read. Uses both static and AI rules, with short-term memory in Redis for privacy and speed. See `rules/features/cleaner.mdc`.
-
-### Knowledge Base
-Allows users to store, manage, and reference information for drafting email replies. Integrates with dual LLMs for efficient knowledge extraction and high-quality draft generation. See `rules/features/knowledge.mdc`.
-
-### Reply Tracker
-Tracks which emails require a reply and which are awaiting a response. Integrates with Gmail labels and uses AI to automate tracking and drafting. See `rules/features/reply-tracker.mdc`.
-
-## Development Guidelines
-- **File Naming**: Use kebab-case for rule files, PascalCase for components, and colocate files where used.
-- **Adding Rules**: Place new rules in `.cursor/rules/` with descriptive names and `.mdc` extension. Follow the template in `cursor-rules.mdc`.
-- **UI Components**: Use Shadcn UI and Tailwind CSS. Implement responsive design and use `next/image` for images.
-- **Data Fetching**: Use SWR for API requests in deeply nested components.
-- **AI/LLM**: Separate system and user prompts, use Zod for schema validation, and follow logging and error handling best practices. See `llm.mdc` and `llm-test.mdc` for details.
-
 ## Environment Variables
 - Add new variables to `.env.example`, `apps/web/env.ts`, and `turbo.json` as described in `environment-variables.mdc`.
 - Client-side variables must be prefixed with `NEXT_PUBLIC_`.
